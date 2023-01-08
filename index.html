@@ -16,6 +16,7 @@
 
 <body>
     
+  <!-- MANIPULATION TRIGGERS -->
     <section class="central-padding">
         <div class="p-5 mb-4 bg-light rounded-3">
 
@@ -23,7 +24,7 @@
               <h1 class="display-6 fw-bold">Change input text</h1>
               <p class="col-md-8 fs-6">This application accepts text and manipulates it according to the "manipulation triggers" included within it. </p>
 
-              <h6 class="fw-bold">Manipulation triggers</h6>
+              <h6 class="fw-bold mt-5">Manipulation triggers</h6>
               <p class="col-md-8 fs-6">Click the buttons below to view trigger options</p>
 
               <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="(hex)" data-bs-content="Every instance of (hex) should replace the word before with the decimal version of the word (in this case the word will always be a hexadecimal number). Ex: '1E (hex) files were added' -> '30 files were added'">(hex)</a>
@@ -42,13 +43,12 @@
 
               <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="(a)" data-bs-content="Every instance of 'a' should be turned into 'an' if the next word begins with a vowel (a, e, i, o, u) or a h. Ex: 'There it was. A amazing rock!' -> 'There it was. An amazing rock!'">(a)</a>
 
-
-
             </div>
 
+            <!-- EXTRA MANIPULATION-->
             <div class="container-fluid">
-
-              <p class="col-md-8 fs-6">Above triggers that include extra manipulation</p>
+              
+              <p class="col-md-8 fs-6 mt-3">Above triggers that include extra manipulation</p>
 
               <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="(up, low, cap)" data-bs-content="For (up), (low), (cap) if a number appears next to it, like so: (low, <number>) it turns the previously specified number of words in lowercase, uppercase or capitalized accordingly. Ex: 'This is so exciting (up, 2)' -> 'This is SO EXCITING'
                 ">(up, low, cap)</a>
@@ -56,29 +56,12 @@
               <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="(. , ! ? : ;)" data-bs-content="continuing... except if there are groups of punctuation like: ... or !?. In this case the program will format the text as in the following example: 'I was thinking ... You were right' -> 'I was thinking... You were right'">(. , ! ? : ;)</a>
 
               <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="( ' )" data-bs-content="If there are more than one word between the two ' ' marks, the program should place the marks next to the corresponding words Ex: (Tom said: ' I love pizza ') -> (Tom said: 'I love pizza')">( ' )</a>
-
-
             </div>
-
-
-            <p>Copy examples from the dropdown to play</p>
-
-
-
-
-
-
-
-
-
-
-
-          </div>
-
-         
-
+        </div>
+    
     </section>
-
+    
+    <p>Copy examples from the dropdown to play</p>
 
 
     <!-- For popovers to work, you need to get the popper library  -->
@@ -90,7 +73,7 @@
       var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
       var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
       return new bootstrap.Popover(popoverTriggerEl)
-})
+    })
 
     </script>
 
