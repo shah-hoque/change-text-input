@@ -6,16 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/style.css" />
-
-    <script src="index.js"></script>
-
-
+    <!-- LIBRARIES & LINKS -->
+    <section>
+      <!-- POPPER LIBRARIES -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+      
+      <!-- BOOTSTRAP LIBRARY-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  
+      <!-- CLIPBOARD.JS LIBRARY-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+  
+      <!-- LOCAL LINKS -->
+      <link rel="stylesheet" href="assets/style.css" />
+  
+      <script src="index.js"></script>
+    </section>
   </head>
 
 <body>
-    
   <!-- MANIPULATION TRIGGERS -->
     <section class="ps-5 pe-5">
         <div class="bg-light rounded-3">
@@ -61,45 +72,46 @@
     
     </section>
 
-  <!-- TEXT EXAMPLE DROPDOWN -->
+
+  <!-- EXAMPLE TEXT DROPDOWN -->
     <section class="ps-5 pe-5">
       <div class="bg-light rounded-3">
 
         <div class="container-fluid mt-5">
           
-          <h6 class="fw-bold">Copy examples from this dropdown</h6>
+          <h6 class="fw-bold">Play with these example text</h6>
+          <p class="col-md-8 fs-6">Click to copy the text from the dropdown</p>
 
-
-
-          <p>Copy examples from the dropdown to play</p>
-
+          <div class="btn-group">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+              Example text
+            </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" data-clipboard-text="Simply add 42 (hex) and 10 (bin) and you will see the result is 68.">Simply add 42 (hex) and 10 (bin) and you will see the result is 68.</a>
+                </li>
+                <li><a class="dropdown-item" href="#" data-clipboard-text="There is no greater agony than bearing a untold story inside you.">There is no greater agony than bearing a untold story inside you.</a>
+                </li>
+                <li><a class="dropdown-item" href="#" data-clipboard-text="Punctuation tests are ... kinda boring ,don't you think !?">Punctuation tests are ... kinda boring ,don't you think !?</a>
+                </li>
+                <li><a class="dropdown-item" href="#" data-clipboard-text="If I make you BREAKFAST IN BED (low, 3) just say thank you instead of: how (cap) did you get in my house (up, 2) ?">If I make you BREAKFAST IN BED (low, 3) just say thank you instead of: how (cap) did you get in my house (up, 2) ?</a>
+                </li>
+                <li><a class="dropdown-item" href="#" data-clipboard-text="I have to pack 101 (bin) outfits. Packed 1a (hex) just to be sure">I have to pack 101 (bin) outfits. Packed 1a (hex) just to be sure</a>
+                </li>
+                <li><a class="dropdown-item" href="#" data-clipboard-text="harold wilson (cap, 2) : ' I am a optimist ,but a optimist who carries a raincoat . '
+                  ">harold wilson (cap, 2) : ' I am a optimist ,but a optimist who carries a raincoat . '</a>
+                </li>
+              </ul>
+          </div>
+          
         </div>
 
-
-      
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </section>
     
 
-
-    <!-- For popovers to work, you need to get the popper library  -->
+    <!-- JAVASCRIPT -->
+    <section>
+    <!-- POPOVERS LIBRARIES -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
@@ -109,8 +121,19 @@
       var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
       return new bootstrap.Popover(popoverTriggerEl)
     })
-
     </script>
+
+    <!-- COPY TEXT FROM EXAMPLE DROPDOWN -->
+    <script>
+      var clipboard = new ClipboardJS('.dropdown-item');
+    
+      // EVENT LISTENER
+      clipboard.on('success', function(e) {
+        console.log('Text copied to clipboard:', e.text);
+      });
+    </script>
+
+    </section>
 
 </body>
 </html>
