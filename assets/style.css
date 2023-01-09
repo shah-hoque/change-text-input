@@ -2,12 +2,6 @@ body {
     background-color: #f8f9fa;
   }
 
-  /* .section-padding {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 3%;
-  } */
-
-
-  
+  .dropdown-menu {
+    --bs-dropdown-link-active-bg: #dc3545;
+  }
