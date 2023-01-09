@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- LIBRARIES & LINKS -->
+  <!-- LIBRARIES & LINKS -->
     <section>
       <!-- POPPER LIBRARIES -->
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
@@ -81,24 +81,24 @@
         <div class="container-fluid mt-5">
           
           <h6 class="fw-bold">Play with these example text</h6>
-          <p class="col-md-8 fs-6">Click to copy the text from the dropdown</p>
+          <p class="col-md-12 fs-6">Click to copy the text from the dropdown</p>
 
           <div class="btn-group">
             <button class="btn btn-secondary btn-sm dropdown-toggle new-b-col" type="button" data-bs-toggle="dropdown" aria-expanded="true">
               Example text
             </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" data-clipboard-text="Simply add 42 (hex) and 10 (bin) and you will see the result is 68.">Simply add 42 (hex) and 10 (bin) and you will see the result is 68.</a>
+                <li onclick="Toasty()"><a class="dropdown-item" href="#" data-clipboard-text="Simply add 42 (hex) and 10 (bin) and you will see the result is 68.">Simply add 42 (hex) and 10 (bin) and you will see the result is 68.</a>
                 </li>
-                <li><a class="dropdown-item" href="#" data-clipboard-text="There is no greater agony than bearing a untold story inside you.">There is no greater agony than bearing a untold story inside you.</a>
+                <li onclick="Toasty()"><a class="dropdown-item" href="#" data-clipboard-text="There is no greater agony than bearing a untold story inside you.">There is no greater agony than bearing a untold story inside you.</a>
                 </li>
-                <li><a class="dropdown-item" href="#" data-clipboard-text="Punctuation tests are ... kinda boring ,don't you think !?">Punctuation tests are ... kinda boring ,don't you think !?</a>
+                <li onclick="Toasty()"><a class="dropdown-item" href="#" data-clipboard-text="Punctuation tests are ... kinda boring ,don't you think !?">Punctuation tests are ... kinda boring ,don't you think !?</a>
                 </li>
-                <li><a class="dropdown-item" href="#" data-clipboard-text="If I make you BREAKFAST IN BED (low, 3) just say thank you instead of: how (cap) did you get in my house (up, 2) ?">If I make you BREAKFAST IN BED (low, 3) just say thank you instead of: how (cap) did you get in my house (up, 2) ?</a>
+                <li onclick="Toasty()"><a class="dropdown-item" href="#" data-clipboard-text="If I make you BREAKFAST IN BED (low, 3) just say thank you instead of: how (cap) did you get in my house (up, 2) ?">If I make you BREAKFAST IN BED (low, 3) just say thank you instead of: how (cap) did you get in my house (up, 2) ?</a>
                 </li>
-                <li><a class="dropdown-item" href="#" data-clipboard-text="I have to pack 101 (bin) outfits. Packed 1a (hex) just to be sure">I have to pack 101 (bin) outfits. Packed 1a (hex) just to be sure</a>
+                <li onclick="Toasty()"><a class="dropdown-item" href="#" data-clipboard-text="I have to pack 101 (bin) outfits. Packed 1a (hex) just to be sure">I have to pack 101 (bin) outfits. Packed 1a (hex) just to be sure</a>
                 </li>
-                <li><a class="dropdown-item" href="#" data-clipboard-text="harold wilson (cap, 2) : ' I am a optimist ,but a optimist who carries a raincoat . '
+                <li onclick="Toasty()"><a class="dropdown-item" href="#" data-clipboard-text="harold wilson (cap, 2) : ' I am a optimist ,but a optimist who carries a raincoat . '
                   ">harold wilson (cap, 2) : ' I am a optimist ,but a optimist who carries a raincoat . '</a>
                 </li>
               </ul>
@@ -106,35 +106,60 @@
           
         </div>
 
+        <!-- TOAST NOTIFICATION -->
+        <div class="toast text-copied-style" id="text-copied-alert" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="me-auto">Text copied</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Paste below
+          </div>
+        </div>
+
       </div>
     </section>
   <!-- EXAMPLE TEXT DROPDOWN (end) -->
 
-    
 
     <!-- JAVASCRIPT -->
     <section>
     <!-- POPOVERS LIBRARIES -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-    <script>
+      <script>
       var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
       var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
       return new bootstrap.Popover(popoverTriggerEl)
     })
-    </script>
+      </script>
 
-    <!-- COPY TEXT FROM EXAMPLE DROPDOWN -->
-    <script>
+    <!-- COPY TEXT FROM EXAMPLE TEXT DROPDOWN -->
+      <script>
       var clipboard = new ClipboardJS('.dropdown-item');
     
       // EVENT LISTENER
       clipboard.on('success', function(e) {
         console.log('Text copied to clipboard:', e.text);
       });
-    </script>
+      </script>
+
+    <!-- EXAMPLE TEXT DROPDOWN - TEXT COPIED NOTIFICATION -->
+      <script>
+        var option = {
+          animation: true,
+          delay: 2500
+        };
+
+        function Toasty() {
+          var toastHTMLElement = document.getElementById("text-copied-alert");
+          var toastElement = new bootstrap.Toast(toastHTMLElement, option);
+          toastElement.show();
+        }
+
+      </script>
 
     </section>
 
