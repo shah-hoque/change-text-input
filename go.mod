@@ -1,3 +1,12 @@
-module git.learn.01founders.co/shah_hoque1/go-reloaded.git
+module github.com/shah-hoque/change-text-input
 
-go 1.17
+go 1.19
+
+require (
+    // golang.org/x/text v0.6.0 // indirect
+)
+
+
+
+
+
