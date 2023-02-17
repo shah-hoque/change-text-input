@@ -1,34 +1,31 @@
 package main
 
 import (
-	"fmt"
+    "fmt"
+    "net/http"
+
 	"regexp"
 	"strconv"
 	"strings"
-	"net/http"
-
-	
 )
 
-func main() {
 
 
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        http.ServeFile(w, r, "index.html")
-    })
-
-	http.HandleFunc("/submit", func(w http.ResponseWriter, r *http.Request) {
-        r.ParseForm()
-        userInput := r.FormValue("user-input")
-        fmt.Println("User input is:", userInput)
-        var1 := userInput
+  func main() {
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+      if r.Method == "POST" {
+        if err := r.ParseForm(); err != nil {
+          http.Error(w, "Bad Request", http.StatusBadRequest)
+          return
+        }
+        userInput := r.FormValue("user-input-text")
 
 			// var textingStr = "Simply add 42 (hex) and 10 (bin) and you will see the result is 68."
 
 		
 			// (FUNC 1) find "(hex)" then convert the previous element from 16 to 32
-			firstSoS := strings.Split(string(var1), " ") // split the input into a slice of strings (file casted from byte to string)
+			firstSoS := strings.Split(string(userInput), " ") // split the input into a slice of strings (file casted from byte to string)
 		
 			for i := 0; i < len(firstSoS); i++ {
 				if firstSoS[i] == "(hex)" {
@@ -238,20 +235,12 @@ func main() {
 		
 			fmt.Println(lastVar)
 
+			w.Write([]byte(lastVar))
+        return
+        }
 
-
-
-
-
-
-
-
-
+        http.ServeFile(w, r, "index.html")
     })
 
-	http.ListenAndServe(":8000", nil)
-
-
-
-	
- }
+    http.ListenAndServe(":8500", nil)
+}

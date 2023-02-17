@@ -125,35 +125,25 @@
   <!-- USER TEXT INPUT -->
   <section class="ps-5 pe-5">
     <div class="bg-light rounded-3"> 
-
       <div class="container-fluid mt-5"> 
-
-        <div class="mb-3">
-          <label for="user-input" class="form-label">Example textarea</label>
-          <div class="user-text">
-            <textarea class="form-control" id="user-input" rows="3"></textarea>
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <form id="user_input" name="user_input">
+          <div class="mb-3">
+            <label for="user-input-text" class="form-label">Example textarea</label>
+            <div class="user-text">
+              <textarea class="form-control" id="user-input-text" name="user-input-text" rows="3"></textarea>
+              <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+            </div>
           </div>
-        </div>
-        
-
-
+        </form>
       </div>
-
-
     </div>
-
-
-
-
-
-
-
-
-
   </section>
-
   <!-- USER TEXT INPUT (end) -->
+
+
+  <div class="parent-res">
+    <div class="user-res"></div>
+  </div>
 
 
 
@@ -195,6 +185,39 @@
         }
 
       </script>
+
+
+  <script>
+  function submitForm() {
+    var input = document.getElementById("user-input-text").value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementsByClassName("user-res")[0].innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("POST", "/user_input", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("user-input-text=" + input);
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </section>
 
